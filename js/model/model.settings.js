@@ -907,5 +907,12 @@ DataTable.models.oSettings = {
 	 *  @type string
 	 *  @default null
 	 */
-	"rowId": null
+	"rowId": null,
+
+	/**
+	 * element be used to calculate width of column's
+	 *  @type string
+	 *  @default null
+	 */
+	"bContainer": null
 };

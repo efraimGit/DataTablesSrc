@@ -2178,7 +2178,26 @@ DataTable.defaults = {
 	 *
 	 *  @name DataTable.defaults.rowId
 	 */
-	"rowId": "DT_RowId"
+	"rowId": "DT_RowId",
+
+
+	/**
+	 * set an element to use as base of calculate width of table.
+	 * in order to calculate width even the table in collapsing container, e.g. tab or modal
+	 *  @type string
+	 *  @default null
+	 *
+	 *  @name DataTable.defaults.container
+	 *
+	 *  @example
+	 *    $(document).ready( function () {
+	 *      $('#example').dataTable( {
+	 *        "container": "#someId";
+	 *      } );
+	 *    } );
+	 */
+	"bContainer": null,
+   
 };
 
 _fnHungarianMap( DataTable.defaults );
