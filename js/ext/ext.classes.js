@@ -46,6 +46,9 @@ $.extend( DataTable.ext.classes, {
 	"sScrollFoot": "dataTables_scrollFoot",
 	"sScrollFootInner": "dataTables_scrollFootInner",
 
+	/* Processing */
+	"sProcessingShown": "processing_shown",
+
 	/* Misc */
 	"sHeaderTH": "",
 	"sFooterTH": "",

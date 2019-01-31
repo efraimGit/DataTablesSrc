@@ -27,6 +27,12 @@ function _fnProcessingDisplay ( settings, show )
 {
 	if ( settings.oFeatures.bProcessing ) {
 		$(settings.aanFeatures.r).css( 'display', show ? 'block' : 'none' );
+
+		if (show) {
+			$(settings.nTable).addClass(settings.oClasses.sProcessingShown);
+		} else {
+			$(settings.nTable).removeClass(settings.oClasses.sProcessingShown);
+		}
 	}
 
 	_fnCallbackFire( settings, null, 'processing', [settings, show] );
