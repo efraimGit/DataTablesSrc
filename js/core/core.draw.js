@@ -317,7 +317,7 @@ function _fnDrawHead( oSettings, aoSource, bIncludeHidden )
  *  @param {object} oSettings dataTables settings object
  *  @memberof DataTable#oApi
  */
-function _fnDraw( oSettings )
+function _fnDraw( oSettings, localy )
 {
 	/* Provide a pre-callback function which can be used to cancel the draw is false is returned */
 	var aPreDraw = _fnCallbackFire( oSettings, 'aoPreDrawCallback', 'preDraw', [oSettings] );
@@ -362,7 +362,7 @@ function _fnDraw( oSettings )
 		oSettings.iDraw++;
 		_fnProcessingDisplay( oSettings, false );
 	}
-	else if ( !bServerSide )
+	else if ( !bServerSide || localy )
 	{
 		oSettings.iDraw++;
 	}
@@ -458,7 +458,7 @@ function _fnDraw( oSettings )
  *    the paging is reset to the first page
  *  @memberof DataTable#oApi
  */
-function _fnReDraw( settings, holdPosition )
+function _fnReDraw( settings, holdPosition, localy )
 {
 	var
 		features = settings.oFeatures,
@@ -466,7 +466,7 @@ function _fnReDraw( settings, holdPosition )
 		filter   = features.bFilter;
 
 	if ( sort ) {
-		_fnSort( settings );
+		_fnSort( settings, localy );
 	}
 
 	if ( filter ) {
@@ -485,7 +485,7 @@ function _fnReDraw( settings, holdPosition )
 	// scrolling internally)
 	settings._drawHold = holdPosition;
 
-	_fnDraw( settings );
+	_fnDraw( settings, localy );
 
 	settings._drawHold = false;
 }
