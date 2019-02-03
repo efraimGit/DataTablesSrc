@@ -72,7 +72,7 @@ function _fnSortFlatten ( settings )
  *  @memberof DataTable#oApi
  *  @todo This really needs split up!
  */
-function _fnSort ( oSettings )
+function _fnSort ( oSettings, locally )
 {
 	var
 		i, ien, iLen, j, jLen, k, kLen,
@@ -107,7 +107,7 @@ function _fnSort ( oSettings )
 	}
 
 	/* No sorting required if server-side or no sorting array */
-	if ( _fnDataSource( oSettings ) != 'ssp' && aSort.length !== 0 )
+	if ( ( _fnDataSource( oSettings ) != 'ssp' || locally ) && aSort.length !== 0 )
 	{
 		// Create a value - key array of the current row positions such that we can use their
 		// current position during the sort, if values match, in order to perform stable sorting

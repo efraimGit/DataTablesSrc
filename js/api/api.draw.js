@@ -3,7 +3,7 @@
 /**
  * Redraw the tables in the current context.
  */
-_api_register( 'draw()', function ( paging ) {
+_api_register( 'draw()', function ( paging, locally ) {
 	return this.iterator( 'table', function ( settings ) {
 		if ( paging === 'page' ) {
 			_fnDraw( settings );
@@ -15,7 +15,7 @@ _api_register( 'draw()', function ( paging ) {
 					true;
 			}
 
-			_fnReDraw( settings, paging===false );
+			_fnReDraw( settings, paging===false, locally );
 		}
 	} );
 } );
