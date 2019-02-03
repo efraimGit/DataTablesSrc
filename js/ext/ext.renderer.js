@@ -21,11 +21,12 @@ $.extend( true, DataTable.ext.renderer, {
 						classes.sSortAsc +' '+
 						classes.sSortDesc
 					)
-					.addClass( columns[ colIdx ] == 'asc' ?
-						classes.sSortAsc : columns[ colIdx ] == 'desc' ?
-							classes.sSortDesc :
-							column.sSortingClass
-					);
+					.addClass( (columns[ colIdx ] == 'asc' ?
+					classes.sSortAsc : columns[ colIdx ] == 'desc' ?
+						classes.sSortDesc :
+						column.sSortingClass) +
+						' ' + (column.bSortable ? '' : classes.sSortableNone)
+				);
 			} );
 		},
 
