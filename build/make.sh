@@ -96,7 +96,7 @@ function build_css {
 
 	for file in $(find $SRC_DIR -name "*.scss"); do
 		filename=$(basename $file .scss)
-		sass --scss --stop-on-error --style expanded $file > $OUT_DIR/$filename.css
+		node-sass --scss --stop-on-error --style expanded $file > $OUT_DIR/$filename.css
 		css_compress $OUT_DIR/$filename.css
 	done
 }
