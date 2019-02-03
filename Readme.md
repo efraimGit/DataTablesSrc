@@ -11,13 +11,14 @@ this option enable to use dataTables serverSide processing with your standerd ap
     response: {
     }
 } 
-by send the dataTables returned data (https://datatables.net/manual/server-side#Returned-data) in response property.
-usage: 
+by send the dataTables [returned data](https://datatables.net/manual/server-side#Returned-data) in response property.
+usage:
+```
 "ajax":{
     "url": url,
     "jsonSrc": response // this row
 }
-
+```
 ### api draw function with locally parameter
 this feature enable draw the table locally, even in serverSide processing mode.
 this option usefull when you want to enable your users to sorting table by selected rows column
@@ -25,7 +26,7 @@ It makes no sense to send the rows to the server and sort them out there, instea
 
 usage:
 I'm using it by remove event listeners from this col head and attach another function like:
-
+```
 $('#dataTable').on('init.dt', function () {
         var settings = table.table().context[0];
         if (settings.oFeatures.bServerSide) {
@@ -36,11 +37,11 @@ $('#dataTable').on('init.dt', function () {
                 var dir = ev.currentTarget.classList.contains('sorting_desc') ? 'asc' : ev.currentTarget.classList.contains('sorting_asc') ? '' : 'desc';
                 // tree state ordering, 'asc', 'desc' and no order
                 if (dir) table.column(ev.currentTarget).order(dir); else table.order(settings.oInit.order || []);
-                settings.oApi._fnReDraw(settings, true, true);
+                table.draw(false, true);
             });
         }
 });
-
+```
 ### container option
 this option enable the library calculate autoWidth, even if the table in a collapsed container like tab or modal
 in cases that the table redraw when the container collapse in, the columns.adjust() function can take several hundred milliseconds
