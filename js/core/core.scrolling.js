@@ -406,13 +406,19 @@ function _fnScrollDraw ( settings )
 	}
 
 	/* Finally set the width's of the header and footer tables */
-	var iOuterWidth = table.outerWidth();
-	divHeaderTable[0].style.width = _fnStringToCss( iOuterWidth );
-	divHeaderInnerStyle.width = _fnStringToCss( iOuterWidth );
+
+	// if table in collapse element user can set container element to calculate based of it instead the table
+	var cont = settings.bContainer ? document.querySelector(settings.bContainer) : false;
+	var iOuterWidth = cont ? $(cont).outerWidth() : table.outerWidth();
 
 	// Figure out if there are scrollbar present - if so then we need a the header and footer to
 	// provide a bit more space to allow "overflow" scrolling (i.e. past the scrollbar)
 	var bScrolling = table.height() > divBodyEl.clientHeight || divBody.css('overflow-y') == "scroll";
+
+	// if container calculate use, we need reduce table width for scrollbar if there
+	divHeaderTable[0].style.width = _fnStringToCss( cont && bScrolling ? iOuterWidth - barWidth : iOuterWidth);
+	divHeaderInnerStyle.width = _fnStringToCss( iOuterWidth );
+
 	var padding = 'padding' + (browser.bScrollbarLeft ? 'Left' : 'Right' );
 	divHeaderInnerStyle[ padding ] = bScrolling ? barWidth+"px" : "0px";
 

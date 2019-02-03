@@ -21,7 +21,7 @@ function _fnCalculateColumnWidths ( oSettings )
 		visibleColumns = _fnGetColumns( oSettings, 'bVisible' ),
 		headerCells = $('th', oSettings.nTHead),
 		tableWidthAttr = table.getAttribute('width'), // from DOM element
-		tableContainer = table.parentNode,
+		tableContainer = oSettings.bContainer ? document.querySelector(oSettings.bContainer) : table.parentNode, // enable calculate besed of other element for cases that table in collapsed element
 		userInputs = false,
 		i, column, columnIdx, width, outerWidth,
 		browser = oSettings.oBrowser,

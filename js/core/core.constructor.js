@@ -120,7 +120,7 @@ _fnMap( oSettings.oFeatures, oInit, [
 	"bAutoWidth",
 	"bSortClasses",
 	"bServerSide",
-	"bDeferRender"
+	"bDeferRender",
 ] );
 _fnMap( oSettings, oInit, [
 	"asStripeClasses",
@@ -143,6 +143,7 @@ _fnMap( oSettings, oInit, [
 	"renderer",
 	"searchDelay",
 	"rowId",
+	"bContainer",
 	[ "iCookieDuration", "iStateDuration" ], // backwards compat
 	[ "oSearch", "oPreviousSearch" ],
 	[ "aoSearchCols", "aoPreSearchCols" ],
