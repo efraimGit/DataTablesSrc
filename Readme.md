@@ -21,7 +21,7 @@ usage:
 ```
 ### api draw function with locally parameter
 this feature enable draw the table locally, even in serverSide processing mode.
-this option usefull when you want to enable your users to sorting table by selected rows column
+this option usefull when you want to enable your users to sorting table by selected rows column.
 It makes no sense to send the rows to the server and sort them out there, instead of sorting directly in the browser
 
 usage:
